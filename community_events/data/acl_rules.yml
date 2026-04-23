@@ -1,0 +1,18 @@
+- model: core.aclrule
+  ext_id: community_acl_public_read
+  fields:
+    model_key: "community_events.event"
+    group_id.ext_id: core.core_group_public
+    perm_read: true
+    domain:
+      - { field: "is_published", operator: "=", value: true }
+
+- model: core.aclrule
+  ext_id: community_acl_staff_all
+  fields:
+    model_key: "community_events.event"
+    group_id.ext_id: community_group_staff
+    perm_read: true
+    perm_write: true
+    perm_create: true
+    perm_unlink: true

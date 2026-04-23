@@ -1,0 +1,40 @@
+- model: ui.menuitem
+  ext_id: asset_menu_root
+  fields:
+    title: "Assets"
+    icon: mdi-devices
+    color_primary: "#4CAF50"
+
+- model: ui.action
+  ext_id: asset_action_assets
+  fields:
+    name: "Gestión de Recursos"
+    route: assets/inventory
+    model_key: asset_lending.asset
+    menu: true
+    default_multi_read_view_id.ext_id: asset_view_asset_list
+
+- model: ui.menuitem
+  ext_id: asset_menu_inventory
+  fields:
+    title: "Inventario"
+    icon: mdi-format-list-bulleted
+    parent_id.ext_id: asset_menu_root
+    action_id.ext_id: asset_action_assets
+
+- model: ui.action
+  ext_id: asset_action_loans
+  fields:
+    name: "Gestión de Préstamos"
+    route: assets/loans
+    model_key: asset_lending.loan
+    menu: true
+    default_multi_read_view_id.ext_id: asset_view_loan_list
+
+- model: ui.menuitem
+  ext_id: asset_menu_loans
+  fields:
+    title: "Préstamos"
+    icon: mdi-hand-shake
+    parent_id.ext_id: asset_menu_root
+    action_id.ext_id: asset_action_loans

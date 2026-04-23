@@ -1,0 +1,36 @@
+- model: ui.view
+  ext_id: asset_view_asset_list
+  fields:
+    name: "asset_lending.asset - Lista"
+    model_key: asset_lending.asset
+    type_id.ext_id: ui.ui_view_type_list
+    definition:
+      columns:
+        - { field: asset_code, label: "Código", width: 100 }
+        - { field: name, label: "Recurso", sortable: true }
+        - { field: status, label: "Estado", chip: true }
+      actions:
+        - { name: new, type: create, icon: mdi-plus, label: "Nuevo Recurso" }
+
+- model: ui.view
+  ext_id: asset_view_loan_list
+  fields:
+    name: "asset_lending.loan - Lista"
+    model_key: asset_lending.loan
+    type_id.ext_id: ui.ui_view_type_list
+    definition:
+      columns:
+        - { field: asset_id, label: "Recurso" }
+        - { field: borrower_user_id, label: "Usuario" }
+        - { field: status, label: "Estado", chip: true }
+        - { field: due_at, label: "Fecha Entrega" }
+      row_actions:
+        - key: return
+          type: service
+          label: "Devolver"
+          icon: mdi-recurrent_item
+          method: return_asset
+          model_key: asset_lending.loan
+          groups: [asset_lending_group_manager, core_group_superadmin]
+          confirm:
+            text: "¿Confirmar la devolución del recurso?"

@@ -1,0 +1,20 @@
+- model: ui.view
+  ext_id: community_view_event_list
+  fields:
+    name: "Calendario de Eventos"
+    model_key: community_events.event
+    type_id.ext_id: ui.ui_view_type_list
+    definition:
+      columns:
+        - { field: name, label: "Evento", sortable: true }
+        - { field: start_at, label: "Fecha y Hora" }
+        - { field: capacity, label: "Aforo" }
+        - { field: is_published, label: "Publicado", type: boolean }
+      row_actions:
+        - key: toggle_publish
+          type: service
+          label: "Publicar/Ocultar"
+          icon: mdi-publish
+          method: toggle_publish
+          model_key: community_events.event
+          groups: [community_group_staff, core_group_superadmin]

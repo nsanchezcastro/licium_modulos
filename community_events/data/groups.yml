@@ -1,0 +1,5 @@
+- model: core.group
+  ext_id: community_group_staff
+  fields:
+    name: "Staff de Comunidad"
+    parent_id.ext_id: core.core_group_superadmin

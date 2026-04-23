@@ -1,0 +1,10 @@
+- model: core.aclrule
+  ext_id: feedback_acl_public_read
+  fields:
+    model_key: "feedback_moderation.suggestion"
+    group_id.ext_id: core.core_group_public
+    perm_read: true
+    # Solo pueden leer si se cumplen AMBAS condiciones
+    domain:
+      - { field: "status", operator: "=", value: "published" }
+      - { field: "is_public", operator: "=", value: true }

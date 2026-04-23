@@ -1,0 +1,32 @@
+- model: ui.view
+  ext_id: feedback_view_suggestion_list
+  fields:
+    name: "Moderación de Sugerencias"
+    model_key: feedback_moderation.suggestion
+    type_id.ext_id: ui.ui_view_type_list
+    definition:
+      columns:
+        - { field: title, label: "Título", sortable: true }
+        - { field: author_name, label: "Autor" }
+        - { field: status, label: "Estado", chip: true }
+        - { field: is_public, label: "Público", type: boolean }
+      
+    
+      row_actions:
+        - key: publish_suggestion
+          type: service
+          label: "Publicar"
+          icon: mdi-check-circle
+          method: publish
+          model_key: feedback_moderation.suggestion
+          groups: [feedback_group_moderator, core_group_superadmin]
+          confirm: { text: "¿Deseas publicar esta sugerencia y hacerla visible?" }
+
+        - key: reject_suggestion
+          type: service
+          label: "Rechazar"
+          icon: mdi-close-circle
+          method: reject
+          model_key: feedback_moderation.suggestion
+          groups: [feedback_group_moderator, core_group_superadmin]
+          confirm: { text: "¿Confirmas el rechazo de esta sugerencia?" }

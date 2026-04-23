@@ -1,0 +1,15 @@
+- model: core.setting
+  ext_id: community_settings_waitlist
+  fields:
+    key: "community_events.allow_waitlist"
+    value: "false"
+    type: "bool"
+    description: "Permitir lista de espera"
+
+- model: core.setting
+  ext_id: community_settings_capacity
+  fields:
+    key: "community_events.default_capacity"
+    value: "100"
+    type: "int"
+    description: "Capacidad máxima por defecto"

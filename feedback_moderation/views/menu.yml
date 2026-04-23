@@ -1,0 +1,20 @@
+- model: ui.action
+  ext_id: feedback_action_moderation
+  fields:
+    name: "Gestión de Sugerencias"
+    model_key: feedback_moderation.suggestion
+    default_multi_read_view_id.ext_id: feedback_view_suggestion_list
+
+- model: ui.menuitem
+  ext_id: feedback_menu_root
+  fields:
+    title: "Feedback"
+    icon: mdi-comment-quote
+    sequence: 20
+
+- model: ui.menuitem
+  ext_id: feedback_menu_moderation
+  fields:
+    title: "Moderación"
+    parent_id.ext_id: feedback_menu_root
+    action_id.ext_id: feedback_action_moderation

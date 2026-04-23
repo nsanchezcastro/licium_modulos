@@ -1,0 +1,11 @@
+name: Community Events
+technical_name: community_events
+version: 0.1
+depends:
+  - ui
+data:
+  - data/groups.yml
+  - data/acl_rules.yml
+  - data/settings.yml  
+  - views/views.yml
+  - views/menu.yml

@@ -1,0 +1,20 @@
+- model: ui.action
+  ext_id: community_action_events
+  fields:
+    name: "Gestión de Eventos"
+    model_key: community_events.event
+    default_multi_read_view_id.ext_id: community_view_event_list
+
+- model: ui.menuitem
+  ext_id: community_menu_root
+  fields:
+    title: "Comunidad"
+    icon: mdi-account-group
+    sequence: 30
+
+- model: ui.menuitem
+  ext_id: community_menu_events
+  fields:
+    title: "Eventos"
+    parent_id.ext_id: community_menu_root
+    action_id.ext_id: community_action_events

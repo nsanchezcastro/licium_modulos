@@ -1,0 +1,5 @@
+- model: core.group
+  ext_id: feedback_group_moderator
+  fields:
+    name: "Moderadores de Feedback"
+    parent_id.ext_id: core.core_group_superadmin  
