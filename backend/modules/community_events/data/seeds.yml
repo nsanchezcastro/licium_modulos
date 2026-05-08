@@ -1,0 +1,30 @@
+#evento de ejemplo
+- model: community_event
+  ext_id: community_event_seed_01
+  fields:
+    name: "Hackathon de Bienvenida Licium"
+    description: "Un evento para nuevos desarrolladores donde aprenderemos a crear módulos avanzados."
+    start_at: "2026-10-15 09:00:00"
+    capacity: 30
+    is_published: true
+
+#evento lleno para probar el aforo
+- model: community_event
+  ext_id: community_event_seed_02
+  fields:
+    name: "Taller de Yoga Comunitario"
+    description: "Clase de yoga matutina en el parque."
+    start_at: "2026-11-20 08:30:00"
+    capacity: 10
+    current_participants: 10
+    is_published: true
+
+#inscripción de prueba 
+- model: registration
+  ext_id: community_registration_seed_01
+  fields:
+    event_id.ext_id: community_event_seed_01
+    attendee_name: "Usuario de Prueba"
+    attendee_email: "test@licium.com"
+    status: "confirmed"
+    notes: "Inscripción generada automáticamente por el sistema."
